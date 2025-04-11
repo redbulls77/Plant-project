@@ -26,7 +26,7 @@ WiFiClient net;
 MqttClient client(net);
 DHT dht11(DHT11_PIN, DHT11);
  
-unsigned long lastPumpActivationTime = 0; // Tallentaa ajan, jolloin pumppu viimeksi aktivoitiin
+unsigned long lastPumpActivationTime = 0; // Saves time log of when pump was last activated
 bool pumpActivated = false; // Take a log of pumps condition
 const unsigned long pumpWaitTime = 60000; // 10 minutes as milliseconds
  
