@@ -44,7 +44,7 @@ String createJsonPayload(const char* key, float value) {
  
 // Function to control the pump based on soil moisture
 void controlPump(int moisturePercent) {
-    if (moisturePercent < 32 && !pumpActivated) {
+    if (moisturePercent < 30 && !pumpActivated) {
         Serial.println("⚠ Soil is too dry! Turning on the pump...");
         digitalWrite(PUMP_PIN, LOW); // Turn on the pump
         delay(3000); // Keep the pump on for 5 seconds
@@ -53,7 +53,7 @@ void controlPump(int moisturePercent) {
         digitalWrite(PUMP_PIN, LOW);
         delay(3000);
         digitalWrite(PUMP_PIN, HIGH);
-        pumpActivated = true; // Merkitse pumppu aktivoiduksi Mark the pump as activated
+        pumpActivated = true; // Mark the pump as activated
         lastPumpActivationTime = millis(); // Refresh the latest activation time
     } else {
         Serial.println("🌊 Soil moisture is sufficient.");
